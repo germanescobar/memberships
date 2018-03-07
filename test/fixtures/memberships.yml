@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: memberships
+#
+#  id              :integer          not null, primary key
+#  organization_id :integer
+#  user_id         :integer
+#  status          :integer
+#  role            :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organization: 
+  user: one
+  status: 1
+  role: 1
+
+two:
+  organization: 
+  user: two
+  status: 1
+  role: 1
