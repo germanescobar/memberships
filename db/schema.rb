@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305065652) do
+ActiveRecord::Schema.define(version: 20180317141031) do
 
   create_table "memberships", force: :cascade do |t|
     t.integer "organization_id"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20180305065652) do
     t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "invitation_token"
+    t.datetime "invited_at"
+    t.integer "invited_by_id"
+    t.datetime "invitation_accepted_at"
+    t.index ["invitation_token"], name: "index_memberships_on_invitation_token", unique: true
+    t.index ["organization_id", "user_id"], name: "index_memberships_on_organization_id_and_user_id", unique: true
     t.index ["organization_id"], name: "index_memberships_on_organization_id"
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end

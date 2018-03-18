@@ -1,0 +1,12 @@
+<div class="alerts-wrapper">
+  <% flash.each do |message_type, message| %>
+    <% unless message.blank? %>
+      <div class="alert alert-dismissible alert-<%= message_type %> alert-growl">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <%= message.html_safe %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

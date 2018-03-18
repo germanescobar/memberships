@@ -1,0 +1,22 @@
+.memberships-page {
+  margin-top: 40px;
+
+  .memberships-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  table {
+    border: 1px solid #ddd;
+
+    td { vertical-align: middle; }
+    td.email {
+      font-size: 1.1rem;
+      small {
+        display: block;
+      }
+    }
+    td.actions { width: 80px; }
+  }
+}

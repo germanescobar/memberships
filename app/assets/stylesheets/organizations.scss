@@ -1,0 +1,30 @@
+.organizations-page {
+  margin-top: 40px;
+
+  .organizations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .organization {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -1px;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+
+    .organization-name { font-size: 1.1rem; }
+
+    .organization-actions {
+      display: flex;
+      align-items: center;
+
+      .icon-wrapper {
+        width: 75px;
+        text-align: center;
+      }
+    }
+  }
+}

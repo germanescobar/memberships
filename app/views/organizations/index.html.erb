@@ -1,0 +1,30 @@
+<div class="organizations-page">
+  <div class="container">
+    <div class="organizations-header">
+      <div>
+        <h1>Organizations</h1>
+        <p class='text-muted'>Manage your organizations. You can create as many as you need.</p>
+      </div>
+      <%= link_to "New Organization", new_organization_path, class: "btn btn-primary" %>
+    </div>
+
+    <div class="mt-5">
+      <% @organizations.each do |organization| %>
+        <div id="organization-<%= organization.id %>" class="organization">
+          <div class="organization-name"><%= organization.name %></div>
+          <div class="organization-actions">
+            <% if current_user.current_organization == organization %>
+              <div class="icon-wrapper"><%= fa_icon "check" %></div>
+            <% else %>
+              <%= link_to "Switch", switch_organization_path(organization), class: "btn btn-outline-primary" %>
+            <% end %>
+            <% if current_user.membership_for(organization).owner_or_admin? %>
+              <%= link_to "Edit", edit_organization_path(organization), class: "btn btn-outline-secondary" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

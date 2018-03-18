@@ -1,0 +1,8 @@
+<% if @pending_memberships.any? %>
+  <p style="padding: 0 5px;" class="text-muted"><%= @pending_memberships.count %> pending invitations</p>
+  <table class="table">
+    <tbody>
+      <%= render @pending_memberships %>
+    </tbody>
+  </table>
+<% end %>

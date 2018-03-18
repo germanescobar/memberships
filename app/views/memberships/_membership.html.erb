@@ -1,0 +1,10 @@
+<tr id="membership-<%= membership.id %>">
+  <td class="email">
+    <%= membership.user.email %>
+    <% if membership.active? %><small class="text-muted">Member since <%= l membership.active_since, format: "%b %e %Y"%></small><% end %>
+    <% if membership.pending? %><small class="text-muted">Invitation sent <%= distance_of_time_in_words(DateTime.current, membership.invited_at)%> ago</small><% end %>
+  </td>
+  <td class="text-right"><%= membership.role.capitalize %></td>
+  <td class="text-right actions">
+    <%= render "memberships/membership_actions", membership: membership if current_membership.owner_or_admin? %>
+</tr>

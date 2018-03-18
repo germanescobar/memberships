@@ -1,0 +1,23 @@
+<div class="organization-page">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-5">
+        <div class="card mt-5">
+          <div class="card-header font-weight-bold"><%= @organization.new_record? ? "Create" : "Edit" %> Organization</div>
+          <%= form_for @organization do |f| %>
+          <div class="card-body">
+            <div class="form-group">
+              <%= f.label :name %>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="card-footer text-right">
+            <%= link_to "Cancel", organizations_path, class: "btn btn-outline-secondary" %>
+            <%= f.submit class: "btn btn-primary" %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

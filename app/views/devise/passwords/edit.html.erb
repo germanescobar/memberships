@@ -1,0 +1,35 @@
+<div class="devise-page">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-5">
+        <div class="card mt-5 mb-2">
+          <div class="card-header">Change your password</div>
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.hidden_field :reset_password_token %>
+            <div class="card-body">
+              <div class="form-group">
+                <%= f.label :password, "New password" %>
+                <%= f.password_field :password, class: "form-control #{input_status_class(resource, :password)}", autofocus: true, autocomplete: "off" %>
+                <% if is_invalid?(resource, :password) %>
+                  <%= invalid_msg(resource, :password) %>
+                <% elsif @minimum_password_length %>
+                  <small class="form-text text-muted"><%= @minimum_password_length %> characters minimum</small>
+                <% end %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password_confirmation, "Confirm new password" %><br />
+                <%= f.password_field :password_confirmation, class: "form-control #{input_status_class(resource, :password_confirmation)}", autocomplete: "off" %>
+                <%= invalid_msg(resource, :password_confirmation) if is_invalid?(resource, :password_confirmation) %>
+              </div>
+            </div>
+            <div class="card-footer text-right">
+              <%= f.submit "Change my password", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

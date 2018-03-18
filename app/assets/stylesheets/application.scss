@@ -1,1 +1,29 @@
 @import "bootstrap";
+@import "font-awesome";
+@import "organizations";
+@import "memberships";
+
+@mixin alert($bg_color, $border_color, $color) {
+  background-color: $bg_color;
+  border-color: $border_color;
+  color: $color;
+  text-align: left;
+}
+
+.alerts-wrapper {
+  position: fixed;
+  top: 40px;
+  right: 20px;
+
+  .alert-growl {
+    font-size: 0.9rem;
+    width: 350px;
+    margin-top: 20px;
+    z-index: 1000;
+  }
+
+  .alert-error { @include alert(#f2dede, #eed3d7, #b94a48) }
+  .alert-alert { @include alert(#f2dede, #eed3d7, #b94a48) }
+  .alert-success { @include alert(#dff0d8, #d6e9c6, #468847) }
+  .alert-notice { @include alert(#dff0d8, #d6e9c6, #468847) }
+}

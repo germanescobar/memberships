@@ -1,0 +1,26 @@
+<div class="memberships-page">
+  <div class="container">
+    <div class="memberships-header">
+      <div>
+        <h1>Memberships</h1>
+        <p class='text-muted'>Invite collaborators and manage their access to the organization</p>
+      </div>
+      <% if current_membership.owner_or_admin? %>
+        <%= link_to "New Membership", new_invitation_path, class: "btn btn-primary", remote: true %>
+      <% end %>
+    </div>
+
+    <div class="mt-5">
+      <table class="table">
+        <tbody>
+          <%= render @active_memberships %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pending-memberships mt-5">
+      <%= render "pending_memberships" %>
+    </div>
+
+  </div>
+</div>

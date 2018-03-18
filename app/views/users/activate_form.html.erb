@@ -1,0 +1,36 @@
+<div class="devise-page">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-5">
+        <div class="card mt-5 mb-2">
+          <div class="card-header">Activate Account</div>
+          <%= form_for @user, url: activate_user_path(@user), method: :put do |f| %>
+            <%= hidden_field_tag :invitation_token, @membership.invitation_token %>
+            <div class="card-body">
+              <div class="form-group">
+                <%= f.label :password, "Choose a password" %>
+                <%= f.password_field :password, class: "form-control #{input_status_class(@user, :password)}", autofocus: true, autocomplete: "off" %>
+                <% if is_invalid?(@user, :password) %>
+                  <%= invalid_msg(@user, :password) %>
+                <% elsif @minimum_password_length %>
+                  <small class="form-text text-muted"><%= @minimum_password_length %> characters minimum</small>
+                <% end %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password_confirmation, "Confirm password" %><br />
+                <%= f.password_field :password_confirmation, class: "form-control #{input_status_class(@user, :password_confirmation)}", autocomplete: "off" %>
+                <%= invalid_msg(@user, :password_confirmation) if is_invalid?(@user, :password_confirmation) %>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="actions text-right">
+                <%= f.submit "Activate my account", class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

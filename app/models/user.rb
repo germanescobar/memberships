@@ -26,5 +26,11 @@ class User < ApplicationRecord
 
   belongs_to :current_organization, class_name: "Organization", optional: true
   has_many :memberships
-  has_many :users, through: :memberships
+  has_many :organizations, through: :memberships
+  has_many :owner_memberships, -> { where(role: :owner) }, class_name: "Membership"
+  has_many :owned_organizations, through: :owner_memberships, source: :organization
+
+  def membership_for(organization)
+    memberships.where(organization: organization).take
+  end
 end

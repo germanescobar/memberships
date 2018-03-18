@@ -1,0 +1,8 @@
+cleanField('#invitation_email');
+
+<% if @invitation.errors.empty? %>
+  $('#membership-modal').modal('hide');
+  $('.pending-memberships').html('<%= j render "memberships/pending_memberships" %>')
+<% else %>
+  invalidField('#invitation_email', '<%= @invitation.errors[:email].first %>');
+<% end %>

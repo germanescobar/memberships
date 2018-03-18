@@ -1,0 +1,9 @@
+<p>Hello,</p>
+
+<p>You have been invited by <%= @inviter.email %> to <strong><%= @organization.name %></strong> on <strong>Memberships</strong>, an example application to manage collaborators</p>
+
+<p><%= link_to "Click here to accept the invitation", accept_invitation_url(id: @membership.invitation_token) %></p>
+
+<p>Regards,</p>
+
+<p style="margin-left: 15px;">The Memberships Team</p>
