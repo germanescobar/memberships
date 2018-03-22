@@ -19,7 +19,7 @@ class MembershipsController < ApplicationController
     if membership.user.current_organization == membership.organization
       membership.user.update(current_organization: nil)
     end
-    
+
     membership.destroy!
 
     redirect_to memberships_path, notice: "The membership was deleted successfully"
