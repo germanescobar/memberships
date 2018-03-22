@@ -10,8 +10,8 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+google:
+  name: Google
 
-two:
-  name: MyString
+apple:
+  name: Apple

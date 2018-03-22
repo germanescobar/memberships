@@ -30,7 +30,7 @@ class Membership < ApplicationRecord
     update!(invitation_token: hashed_token, invited_at: DateTime.current,
         invited_by: inviter)
 
-    UserMailer.send_invitation(self, inviter).deliver_now
+    UserMailer.send_invitation(self, inviter, raw_token).deliver_now
   end
 
   def accept_invitation!

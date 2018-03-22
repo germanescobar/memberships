@@ -24,7 +24,8 @@ class InvitationsController < ApplicationController
   end
 
   def accept
-    membership = Membership.find_by!(invitation_token: params[:id])
+    token = Devise.token_generator.digest(Membership, :invitation_token, params[:id])
+    membership = Membership.find_by!(invitation_token: token)
 
     user, organization = membership.user, membership.organization
 

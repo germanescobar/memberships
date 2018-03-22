@@ -17,14 +17,44 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  organization: 
-  user: one
-  status: 1
-  role: 1
+google_owner:
+  organization: google
+  user: peter
+  status: :active
+  role: :owner
 
-two:
-  organization: 
-  user: two
-  status: 1
-  role: 1
+google_admin:
+  organization: google
+  user: jhon
+  status: :active
+  role: :admin
+
+google_user:
+  organization: google
+  user: david
+  status: :active
+  role: :user
+
+google_pending:
+  organization: google
+  user: mary
+  status: :pending
+  role: :user
+  invitation_token: "27fe37a8e95dfdd5dd982269c2c89e32c944b90f2b720f8c65d4b672fc9fe42a"
+  invited_at: <%= 1.day.ago %>
+  invited_by: :jhon
+
+apple_owner:
+  organization: apple
+  user: jhon
+  status: :active
+  role: :owner
+
+apple_pending:
+  organization: apple
+  user: peter
+  status: :pending
+  role: :user
+  invitation_token: "cc8da04f9678e593669b6d2e784cea2b1238123a2a82ab4ec31d7d010142bf76"
+  invited_at: <%= 1.day.ago %>
+  invited_by: :jhon

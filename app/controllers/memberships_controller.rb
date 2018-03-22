@@ -16,11 +16,11 @@ class MembershipsController < ApplicationController
 
   def destroy
     membership = current_organization.memberships.find(params[:id])
-    membership.destroy
-
     if membership.user.current_organization == membership.organization
       membership.user.update(current_organization: nil)
     end
+    
+    membership.destroy!
 
     redirect_to memberships_path, notice: "The membership was deleted successfully"
   end

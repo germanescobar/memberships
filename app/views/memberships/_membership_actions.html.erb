@@ -17,7 +17,7 @@
       <% if membership.admin? %>
         <%= link_to "Revoke admin privilege", toggle_admin_membership_path(membership), class: "dropdown-item", method: :post, data: { confirm: "Are you sure you want to revoke the administration privileges of this user?" } %>
       <% else %>
-        <%= link_to "Grant admin prinvilege", toggle_admin_membership_path(membership), class: "dropdown-item", method: :post, data: { confirm: "Are you sure you want to grant administration privileges to this user?" } %>
+        <%= link_to "Grant admin privilege", toggle_admin_membership_path(membership), class: "dropdown-item", method: :post, data: { confirm: "Are you sure you want to grant administration privileges to this user?" } %>
       <% end %>
       <%= link_to "Revoke access", membership, class: "dropdown-item", method: :delete, data: { confirm: "Are you sure to revoke complete access to this user?" } %>
     </div>
