@@ -34,9 +34,9 @@ We also created a virtual model called [Invitation](app/models/invitation.rb) th
 The controllers are the following:
 
 * [OrganizationsController](app/controllers/organizations_controller.rb) - used to manage the organizations.
-* [InvitationsController](app/controller/invitations_controller.rb) - used to create, resend and accept invitations.
-* [MembershipsController](app/controller/memberships_controller.rb) - used to change privileges and delete memberships.
-* [UsersController](app/controller/users_controller.rb) - used for activations of users (allow the new users to set a password).
+* [InvitationsController](app/controllers/invitations_controller.rb) - used to create, resend and accept invitations.
+* [MembershipsController](app/controllers/memberships_controller.rb) - used to change privileges and delete memberships.
+* [UsersController](app/controllers/users_controller.rb) - used for activations of users (allow the new users to set a password).
 
 Finally, we added a `current_organization_id` column to `User` that represents the organization that the user is currently working on.
 
@@ -48,16 +48,24 @@ Finally, we wrote some integration tests. Ideally, you would want to refactor so
 
 ## Setup
 
+The requirements for this project are the following:
+
+* Ruby (I used version 2.4.1)
+* Rails 5.1
+* Node.js
+* Yarn
+
 First, clone the project with the following command:
 
 ```
 $ git clone git@github.com:germanescobar/memberships.git
 ```
 
-Then, install the dependencies with:
+Then, install the dependencies with the following commands:
 
 ```
 $ bundle
+$ yarn install
 ```
 
 Load the schema:
@@ -82,4 +90,4 @@ We checked [devise_invitable](https://github.com/scambra/devise_invitable) but i
 
 **How can I contribute to this project?**
 
-You can open an issue first so we can discuss the change/improvement. You can also create a Pull Request once the issue is discussed.
+You can open an issue first so we can discuss the change/improvement. You can also create a Pull Request once the issue is discussed, or for one of the opened issues.
