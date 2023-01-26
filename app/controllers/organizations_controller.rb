@@ -10,7 +10,7 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = current_user.owned_organizations.buld(organization_params)
+    @organization = current_user.owned_organizations.build(organization_params)
     if @organization.save
       @organization.owner = current_user
       current_user.update(current_organization: @organization)
